@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+/*
+DOM:Document object model
+By using dom java script can access, change or remove any elements of HTML document and also can
+create new elements at any position.
+
+When a webpage is loaded, browser create DOM of webpage
+*/
+
+    </script>
+
+    <div>
+        <form>
+            <h1>MCET</h1>
+        </form>
+    </div>
+     <!-- 
+    Document object has properties, methods
+    Using this document object properties and methods we can
+    1.select html elments
+    2.modify html elements
+    3.remove/delete html elements
+    4.create html elements
+    5.Add/remove/Change styles to html elements
+    -->
+    <!-- 
+    Methods to select HTML Elements:
+    1.document.getElementById(): returns elements with the specific id
+    -->
+ 
+    <h1 id="mcetbyid">hello</h1>
+    <script>
+        var v1=document.getElementById("mcetbyid")
+        console.log(v1)
+        </script>
+
+    <!-- 
+    2.document.getElementByClassName(): returns list of all elements belongs to the specified class
+    -->
+    <div class="mcetbyclass"> 
+
+        <h1>element1</h1>
+        <p>element2<p>
+        <h3>element3</h3>
+    </div>
+    <div class="mcetbyclass"> 
+
+        <h1>element1</h1>
+        <p>element2<p>
+        <h3>element3</h3>
+    </div>
+    <div class="mcetbyclass"> 
+
+        <h1>element1</h1>
+        <p>element2<p>
+        <h3>element3</h3>
+    </div>
+    <script>
+        var v=document.getElementsByClassName("mcetbyclass")
+        console.log(v)
+        </script>
+    <!--
+     3.document.getElementsByTagName(): Returns list of all elements with the specified tag   
+      -->
+      <div class="mcetbyclass"> 
+
+        <h1>element1</h1>
+        <p>element2<p>
+        <h3>element3</h3>
+    </div>
+    <div class="mcetbyclass"> 
+
+        <h1>element1</h1>
+        <p>element2<p>
+        <h3>element3</h3>
+    </div>
+    <div class="mcetbyclass"> 
+
+        <h1>element1</h1>
+        <p>element2<p>
+        <h3>element3</h3>
+    </div>
+    <script>
+        var v=document.getElementsByTagName("h1")
+        console.log(v)
+        </script>
+    <!-- 
+     4.document.querySelector(): Returns the first element that matches the specified selectors
+    -->
+    <div class="mcetbyclass"> 
+
+        <h1>element1</h1>
+        <p>element2<p>
+        <h3>element3</h3>
+    </div>
+    <div class="mcetbyclass"> 
+
+        <h1>element1</h1>
+        <p>element2<p>
+        <h3>element3</h3>
+    </div>
+    <script>
+        var vari=document.querySelector(".mcetbyclass")
+        console.log(vari)
+        </script>
+    <!-- 
+    5.document.querySelectorAll(): Returns the all elements that matches the specified selectors
+    -->
+    <div class="mcetbyclass"> 
+
+        <h1>element1</h1>
+        <p>element2<p>
+        <h3>element3</h3>
+    </div>
+    <div class="mcetbyclass"> 
+
+        <h1>element1</h1>
+        <p >element2<p>
+        <h3>element3</h3>
+    </div>
+    <script> 
+        var vari1=document.querySelectorAll(".mcetbyclass")
+        console.log(vari1)
+        </script>
+
+  <!-- properties to select html elements
+  document.body 
+  document.head
+  document.title
+  document.anchors
+  document.images
+  document.forms
+  document.scripts
+  -->
+
+   
+  <script>
+    console.log(document.scripts)
+  </script>
+
+
+
+
+<!-- CREATING A HTML ELEMENT -->
+ <div id="parent">
+    <p id="trial1">thi is example of creating element using html</p>
+    <p id="trial2">thi is example of creating element using html</p>
+
+</div>
+ <script>
+    var element = document.createElement('p');
+
+    // <!-- SET CONTENT TO ELEMENT -->
+    element.innerText="this is created by js"
+    console.log(element)
+
+    // <!-- APPEND A NEW ELEMENT -->
+    var parent=document.getElementById("parent")
+    console.log(parent)
+    parent.appendChild(element)
+    console.log(parent.innerText)
+    console.log(parent.innerHTML)
+
+
+    // <!-- INSERTING A ELEMENT BEFORE ELEMENT -->
+    var trial=document.getElementById("trial2")
+    parent.insertBefore(element,trial)
+
+    
+    // <!-- REMOVING AN ELEMENT -->
+    var remove=document.getElementById("trial1")
+    remove.remove()
+
+    // <!-- REMOVE CHILD ELEMENT -->
+    var rem=document.getElementById("trial2")
+    parent.removeChild(rem)
+
+    // <!-- REPLACE AN ELEMENT -->
+    var element1 = document.createElement('p');
+    element1.innerText="this is created by js second time"
+    element.replaceChildren(element1)
+ </script>
+ 
+
+<!-- JavaScript Style Methods -->
+<script>
+    // Select an element to style
+    var styledElement = document.getElementById("mcetbyid");
+
+    // Change color using JavaScript
+    styledElement.style.color = "blue";
+
+    // Change font size using JavaScript
+    styledElement.style.fontSize = "24px";
+
+    // Add a background color using JavaScript
+    styledElement.style.backgroundColor = "lightgray";
+
+    // Adding multiple styles at once
+    Object.assign(styledElement.style, {
+        border: "2px solid black",
+        padding: "10px",
+        textAlign: "center"
+    });
+
+    console.log(styledElement);
+</script>
+
+<!-- Another example with class elements -->
+<script>
+    // Select multiple elements by class
+    var classElements = document.getElementsByClassName("mcetbyclass");
+
+    // Loop through all selected elements and apply styles
+    for (var i = 0; i < classElements.length; i++) {
+        classElements[i].style.border = "1px solid red";
+        classElements[i].style.padding = "5px";
+        classElements[i].style.margin = "5px";
+    }
+
+    console.log(classElements);
+</script>
+
+<!-- JavaScript Style Methods - Advanced Example -->
+<script>
+    // Select elements to apply styles
+    var container = document.getElementById('parent');
+    var element = document.getElementById('mcetbyid');
+
+    // Apply general container styles
+    container.style.display = "flex";
+    container.style.flexDirection = "column";
+    container.style.alignItems = "center";
+    container.style.justifyContent = "space-between";
+    container.style.padding = "20px";
+    container.style.border = "2px solid #ccc";
+    container.style.borderRadius = "10px";
+    container.style.backgroundColor = "#f9f9f9";
+    container.style.width = "80%";
+    container.style.margin = "0 auto";
+
+    // Apply text styles to an element
+    element.style.color = "#2c3e50";
+    element.style.fontFamily = "'Arial', sans-serif";
+    element.style.fontSize = "28px";
+    element.style.fontWeight = "bold";
+    element.style.textAlign = "center";
+    element.style.textTransform = "uppercase";
+    element.style.textShadow = "2px 2px 5px rgba(0,0,0,0.3)";
+
+    // Add margin and padding
+    element.style.margin = "10px 0";
+    element.style.padding = "15px";
+
+    // Apply border and background styles
+    element.style.border = "2px solid #2980b9";
+    element.style.borderRadius = "5px";
+    element.style.backgroundColor = "#ecf0f1";
+
+    // Adding box-shadow and transform for a 3D effect
+    element.style.boxShadow = "0 4px 8px rgba(0,0,0,0.2)";
+    element.style.transform = "scale(1.05)";
+    element.style.transition = "transform 0.3s ease-in-out";
+
+    // Hover effect using JavaScript event
+    element.addEventListener('mouseenter', function() {
+        element.style.transform = "scale(1.1)";
+        element.style.boxShadow = "0 6px 12px rgba(0,0,0,0.3)";
+    });
+
+    element.addEventListener('mouseleave', function() {
+        element.style.transform = "scale(1.05)";
+        element.style.boxShadow = "0 4px 8px rgba(0,0,0,0.2)";
+    });
+
+    // Working with pseudo-elements
+    var pseudoStyle = document.createElement('style');
+    pseudoStyle.textContent = `
+        #mcetbyid::after {
+            content: " - Styled by JS";
+            color: #8e44ad;
+            font-size: 14px;
+            display: block;
+            margin-top: 10px;
+        }
+    `;
+    document.head.appendChild(pseudoStyle);
+
+    // Responsive design using media queries
+    var mediaStyle = document.createElement('style');
+    mediaStyle.textContent = `
+        @media (max-width: 768px) {
+            #parent {
+                width: 100%;
+                padding: 10px;
+            }
+            #mcetbyid {
+                font-size: 22px;
+            }
+        }
+    `;
+    document.head.appendChild(mediaStyle);
+</script>
+
+
+</body>
+</html>
+
+
+</body>
+</html>

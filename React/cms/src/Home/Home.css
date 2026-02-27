@@ -1,0 +1,78 @@
+.home-container {
+  padding: 2rem;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #48a2bb;
+}
+
+.hero-section {
+  text-align: center;
+  padding: 3rem 1rem;
+  background-color: #7aa4d3;
+  color: white;
+  border-radius: 8px;
+}
+
+.cta-button {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #063e22;
+  color: #edf0f3bb;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.features-section {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  background-color: rgba(242, 236, 236, 0.729);
+  padding: 1.5rem;
+  margin: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  width: 250px;
+  text-align: center;
+}
+
+.testimonials-section {
+    margin-top: 3rem;
+  text-align: center;
+}
+.horizontal{
+    display: flex;
+}
+.testimonial {
+  background-color: #ffffff74;
+  margin: 1rem auto;
+  padding: 1rem;
+  width: 300px;
+  border-radius: 8px;
+  border-color: black;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+
+.divEmployee{
+  display:flex;
+  align-items: center;
+}
+.teach-details{
+  background-color: rgba(242, 236, 236, 0.729);
+  padding: 1.5rem;
+  margin: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  width: 250px;
+  text-align: center;
+  align-items: center;
+  display:block;
+}
+.teach-details li{
+  list-style-type: none;
+}

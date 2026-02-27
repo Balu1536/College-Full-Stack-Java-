@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <nav class="navbar">
+  <div class="logo">🛍️ SmartRetail</div>
+  <ul class="nav-links">
+    <li><a href="Home.html" class="active">Home</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="cart.html">Cart</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li id="loginLink"><a href="login.html">Login</a></li>
+    <li id="signupLink"><a href="signup.html">Signup</a></li>
+    <li id="logoutLink" style="display:none;"><a href="#">Logout</a></li>
+  </ul>
+</nav>
+
+
+<h2>Billing Summary</h2>
+<div id="billingSummary"></div>
+<button onclick="window.print()">🖨️ Print Bill</button>
+
+
+<footer>
+  <p>📍 SmartRetail, Narsipatnam, Andhra Pradesh, India</p>
+  <p>📧 support@smartretail.com | 📞 +91-9876543210</p>
+  <div class="socials">
+    <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a>
+  </div>
+  <p>© 2026 SmartRetail</p>
+</footer>
+<script>
+    function showBilling(){
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let subtotal = cart.reduce((sum,item)=> sum + item.price*item.qty, 0);
+  let tax = subtotal * 0.05; // 5% tax
+  let total = subtotal + tax;
+
+  document.getElementById("billingSummary").innerHTML = `
+    <p>Subtotal: ₹${subtotal}</p>
+    <p>Tax (5%): ₹${tax}</p>
+    <p><strong>Total: ₹${total}</strong></p>
+  `;
+}
+showBilling();
+</script>
+</body>
+</html>

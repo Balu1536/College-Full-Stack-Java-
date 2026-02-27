@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <nav class="navbar">
+  <div class="logo">📚 MyLibrary</div>
+  <ul class="nav-links">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="books.html">Books</a></li>
+    <li><a href="issued.html">Issued Books</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li id="loginLink"><a href="login.html">Login</a></li>
+    <li id="signupLink"><a href="signup.html">Signup</a></li>
+    <li id="logoutLink" style="display:none;"><a href="#">Logout</a></li>
+  </ul>
+</nav>
+
+<h2>Issued Books</h2>
+<div id="issuedList"></div>
+<footer>
+  <p>📍 MyLibrary, Narsipatnam, Andhra Pradesh, India</p>
+  <p>🕒 Mon–Sat: 9 AM – 8 PM</p>
+  <p>📧 support@mylibrary.com</p>
+  <div class="socials">
+    <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a>
+  </div>
+  <p>© 2026 MyLibrary</p>
+</footer>
+<script>
+function loadIssued(){
+  let issued=JSON.parse(localStorage.getItem("issuedBooks"))||[];
+  let container=document.getElementById("issuedList");
+  container.innerHTML="";
+  if(issued.length===0){
+    container.innerHTML="<p>No books issued.</p>";
+    return;
+  }
+  issued.forEach((b,i)=>{
+    container.innerHTML+=`
+      <div>
+        <h3>${b.title}</h3>
+        <p>${b.author}</p>
+        <p>Issued on: ${b.date}</p>
+        <button onclick="returnBook(${i})">Return</button>
+      </div>`;
+  });
+}
+
+function returnBook(index){
+  let issued = JSON.parse(localStorage.getItem("issuedBooks")) || [];
+  let book = issued[index];
+
+  // Remove from issued list
+  issued.splice(index,1);
+  localStorage.setItem("issuedBooks", JSON.stringify(issued));
+
+  // Reset availability in main books list
+  let books = JSON.parse(localStorage.getItem("books")) || [];
+  let libBook = books.find(b => b.title === book.title);
+  if(libBook) libBook.available = true;
+  localStorage.setItem("books", JSON.stringify(books));
+
+  loadIssued();
+}
+
+document.addEventListener("DOMContentLoaded", loadIssued);
+
+</script>
+</body>
+</html>

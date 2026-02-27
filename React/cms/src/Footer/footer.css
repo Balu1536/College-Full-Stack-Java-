@@ -1,0 +1,36 @@
+.footer-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #131313d2;
+  color: #ffffff;
+  padding: 2rem 1rem;
+  border-top: 2px solid #4a90e2;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.footer-div a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.footer-div a:hover {
+  color: burlywood;
+}
+
+.footer-div ul {
+  list-style: none;
+  padding: 0;
+  margin: 0rem 0;
+  display: flex;
+  gap: 0rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+

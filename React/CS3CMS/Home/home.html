@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+<header id="main-header">
+      <div class="container">
+        <h1>Clinic Management System</h1>
+      </div>
+      <nav id="main-nav">
+        <ul>
+          <div class="logo">
+          <img width=50 height=40 src="data:image/jpeg;base64,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">
+          </div>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="../Doctors/doctors.html">Doctors</a></li>
+          <li><a href="../Appointments/appointments.html">Appointments</a></li>
+          <li><a href="../About/about.html">About</a></li>
+          <li><a href="../contact/contact.html">Contact</a></li>
+          <li><a href="../login/login.html">Login</a></li>
+          <li><a href="../signup/signup.html">Signup</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+<main>
+    <h1> Welcome to Kadapa Hospitals</h1>
+    <section>
+    <div>
+        <img src="data:image/jpeg;base64,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" alt="Placeholder Image" />
+    </div>
+    <div>
+        <p>Kadapa clinic introduction highlights your commitment to patient well-being, specialized care, and a welcoming environment, often through storytelling, clear communication of services (like "Quality Care at Your Doorstep"), and a strong call-to-action (Schedule Today!), focusing on being patient-centered and trustworthy. Whether for marketing, a website, or a personal welcome, it should convey expertise, accessibility, and compassion, like "Your Health, Our Priority" or "Compassionate Care, Expert Hands". 
+Key Elements for a Clinic Intro
+Focus on Patients: Emphasize patient outcomes, personalized attention, and a positive experience.
+Highlight Specialties: Clearly state what makes your clinic unique (e.g., pediatrics, vascular care, general health).
+Build Trust: Use words like "dedicated," "experienced," "quality," and "peace of mind".
+Provide a Clear Call-to-Action: Encourage appointments or contact ("Book Now," "Visit Us Today").
+Convey a Welcoming Atmosphere: Mention a calm, professional, and accessible space. 
+Examples of Intro Statements
+Short & Catchy: "Your Health, Our Priority." or "Care You Can Trust.".
+Benefit-Oriented: "Improving your quality of life with expert medical care.".
+Story-Driven: "Founded on a passion for community health, we offer comprehensive care for your family.".
+        </p>
+    </div>
+    <div>
+        <h1>
+            Departments
+        </h1>
+        <p>
+            <ul>
+                <li>Cardiology</li>
+                <li>Dermotology</li>
+                <li>OrthoDentist</li>
+                <li>Pediatrician</li>
+            </ul>
+        </p>
+
+    </div>
+    </section>
+
+
+
+</main>
+
+
+<footer id="main-footer">
+      <div class="container">
+        <p>&copy; 2026 HTML CSS Project. All rights reserved.</p>
+        <h1>Kadapa Hospitals</h1>
+        <p>Timings:8:00 AM to 10:00 PM</p>
+        <p>Email: kadapa@gmail.com</p>
+      </div>
+      <div>
+        <ul>
+          <li><a href="#section1">Linkedin</a></li>
+          <li><a href="#section2">Instagram</a></li>
+          <li><a href="#section3">Facebok</a></li>
+        </ul>
+      </div>
+    </footer>
+</body>
+</html>

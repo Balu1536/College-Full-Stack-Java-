@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <nav class="navbar">
+  <div class="logo">📚 MyLibrary</div>
+  <ul class="nav-links">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="books.html">Books</a></li>
+    <li><a href="issued.html">Issued Books</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li id="loginLink"><a href="login.html">Login</a></li>
+    <li id="signupLink"><a href="signup.html">Signup</a></li>
+    <li id="logoutLink" style="display:none;"><a href="#">Logout</a></li>
+  </ul>
+</nav>
+
+<h2>Library Books</h2>
+<input type="text" id="searchBox" placeholder="Search by title or author">
+<select id="filterCategory">
+  <option value="all">All</option>
+  <option value="fiction">Fiction</option>
+  <option value="science">Science</option>
+  <option value="history">History</option>
+</select>
+<div id="bookList"></div>
+<footer>
+  <p>📍 MyLibrary, Narsipatnam, Andhra Pradesh, India</p>
+  <p>🕒 Mon–Sat: 9 AM – 8 PM</p>
+  <p>📧 support@mylibrary.com</p>
+  <div class="socials">
+    <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a>
+  </div>
+  <p>© 2026 MyLibrary</p>
+</footer>
+<script>
+    const books=[
+  {title:"The Great Gatsby",author:"F. Scott Fitzgerald",category:"fiction",available:true},
+  {title:"A Brief History of Time",author:"Stephen Hawking",category:"science",available:true},
+  {title:"Sapiens",author:"Yuval Noah Harari",category:"history",available:true}
+];
+
+function displayBooks(list){
+  let container=document.getElementById("bookList");
+  container.innerHTML="";
+  list.forEach((b,i)=>{
+    container.innerHTML+=`
+      <div class="book-card">
+        <h3>${b.title}</h3>
+        <p>${b.author}</p>
+        <p>${b.category}</p>
+        <p>${b.available?"Available":"Issued"}</p>
+        ${b.available?`<button onclick="issueBook(${i})">Issue Book</button>`:""}
+      </div>`;
+  });
+}
+
+function issueBook(index){
+  books[index].available=false;
+  let issued=JSON.parse(localStorage.getItem("issuedBooks"))||[];
+  issued.push({...books[index],date:new Date().toLocaleDateString()});
+  localStorage.setItem("issuedBooks",JSON.stringify(issued));
+  displayBooks(books);
+}
+
+document.getElementById("searchBox").addEventListener("input",function(){
+  let keyword=this.value.toLowerCase();
+  displayBooks(books.filter(b=>b.title.toLowerCase().includes(keyword)||b.author.toLowerCase().includes(keyword)));
+});
+
+document.getElementById("filterCategory").addEventListener("change",function(){
+  let cat=this.value;
+  if(cat==="all") displayBooks(books);
+  else displayBooks(books.filter(b=>b.category===cat));
+});
+
+displayBooks(books);
+</script>
+</body>
+</html>

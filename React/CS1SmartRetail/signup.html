@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>\
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <nav class="navbar">
+  <div class="logo">🛍️ SmartRetail</div>
+  <ul class="nav-links">
+    <li><a href="Home.html" class="active">Home</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="cart.html">Cart</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li id="loginLink"><a href="login.html">Login</a></li>
+    <li id="signupLink"><a href="signup.html">Signup</a></li>
+    <li id="logoutLink" style="display:none;"><a href="#">Logout</a></li>
+  </ul>
+</nav>
+
+<form id="signupForm">
+  <h2>Signup</h2>
+  <input type="text" id="name" placeholder="Full Name" required>
+  <input type="email" id="email" placeholder="Email" required>
+  <input type="password" id="password" placeholder="Password" required>
+  <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+  <button type="submit">Register</button>
+  <p id="signupMessage"></p>
+</form>
+
+<footer>
+  <p>📍 SmartRetail, Narsipatnam, Andhra Pradesh, India</p>
+  <p>📧 support@smartretail.com | 📞 +91-9876543210</p>
+  <div class="socials">
+    <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a>
+  </div>
+  <p>© 2026 SmartRetail</p>
+</footer>
+
+<script>
+    document.getElementById("signupForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  let name = document.getElementById("name").value;
+  let email = document.getElementById("email").value;
+  let password = document.getElementById("password").value;
+  let confirmPassword = document.getElementById("confirmPassword").value;
+
+  if(password !== confirmPassword){
+    document.getElementById("signupMessage").innerText = "❌ Passwords do not match!";
+    return;
+  }
+
+  localStorage.setItem("user", JSON.stringify({name, email, password}));
+  document.getElementById("signupMessage").innerText = "✅ Signup successful!";
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+/*PURE FUNCTION
+def: when ever we have a requirement of producing same output given the same input
+without side effects that means it doesn't modify the external state such as 
+global variables, input parameters etc..
+*/
+//example
+function function_name (){
+    return ;
+}
+ 
+/*ANONYMOUS FUNCTION
+
+def: these functions are declared without a name , we can use this anonymous functions 
+in all the places that we are using the normal functions.
+we use this functions mainly in callback functions and event listners.
+*/
+//example fro writing the simple anonymous function
+var add=(function(a,b){
+    return a+b;
+
+})(5,10)
+alert(add)
+/*ARROW FUNCTIONS
+def: These functions are usefull for writing single expression functions.
+This function is stored in variable in th ememory, easy to access.
+
+*/
+// Example: Arrow function to add two numbers
+const add = (a, b) => a + b;
+
+console.log(add(2, 3));  
+// Example: Arrow function with single parameter
+const square = n => n * n;
+
+console.log(square(4));  
+
+// Example: Arrow function with multiple lines
+const greet = name => {
+    const message = `Hello, ${name}!`;
+    return message;
+};
+console.log(greet('mcet'));  
+/*CALLBACK FUNCTION
+A callback function is a function passed into another function as an 
+argument and is executed after some operation is completed. This mechanism 
+allows you to run custom code once a particular task or event has finished.
+*/
+
+// Example: Using a callback function to handle a delayed operation
+function fetchData(callback) {
+    setTimeout(() => {
+        const data = "Data fetched successfully!";
+        callback(data);
+    }, 2000);
+}
+
+
+fetchData(function(result) {
+    console.log(result);  
+});
+/*A higher-order function is a function that either:
+
+Takes one or more functions as arguments.
+Returns a function as its result.
+Data Transformation: When you need to transform data in a collection using
+ functions like map, filter, and reduce.
+*/
+// Example: Higher-order function that takes a function as an argument
+function applyFunction(arr, func) {
+    return arr.map(func);
+}
+
+// Function to be used as an argument
+function square(x) {
+    return x * x;
+}
+
+const numbers = [1, 2, 3, 4];
+const squaredNumbers = applyFunction(numbers, square);
+
+console.log(squaredNumbers); // Outputs: [1, 4, 9, 16]
+
+
+ 
+
+</script>
+</head>
+<body>
+    hello
+</body>
+</html>
