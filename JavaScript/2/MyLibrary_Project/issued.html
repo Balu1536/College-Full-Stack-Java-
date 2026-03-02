@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Issued Books</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+    <div><strong>MyLibrary</strong></div>
+    <div>
+        <a href="index.html">Home</a>
+        <a href="books.html">Books</a>
+        <a href="issued.html">Issued Books</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html">Login</a>
+        <a href="signup.html">Signup</a>
+    </div>
+</nav>
+
+<div class="container">
+
+<h2>Issued Books</h2>
+<div id="issuedList"></div>
+
+<script>
+let issued=JSON.parse(localStorage.getItem("issued"))||[];
+let container=document.getElementById("issuedList");
+if(issued.length===0){
+    container.innerHTML="<p>No books issued.</p>";
+} else {
+    issued.forEach(b=>{
+        container.innerHTML+=`
+        <div class="book-card">
+            <h3>${b.title}</h3>
+            <p>Author: ${b.author}</p>
+            <p>Issue Date: ${b.issueDate}</p>
+            <button onclick="returnBook(${b.id})">Return</button>
+        </div>`;
+    });
+}
+</script>
+
+</div>
+
+<footer>
+    <p>Address: Cuddapah, India | Email: support@mylibrary.com</p>
+    <p>© 2026 MyLibrary</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

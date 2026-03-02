@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+    <div><strong>MyLibrary</strong></div>
+    <div>
+        <a href="index.html">Home</a>
+        <a href="books.html">Books</a>
+        <a href="issued.html">Issued Books</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html">Login</a>
+        <a href="signup.html">Signup</a>
+    </div>
+</nav>
+
+<div class="container">
+
+<h2>Contact Us</h2>
+<input id="name" placeholder="Name"><br><br>
+<input id="email" placeholder="Email"><br><br>
+<textarea id="message" placeholder="Message"></textarea><br><br>
+<button onclick="contact()">Submit</button>
+
+<script>
+function contact(){
+    let name=document.getElementById("name").value;
+    let email=document.getElementById("email").value;
+    let msg=document.getElementById("message").value;
+    if(!name||!email||!msg){alert("All fields required");return;}
+    alert("Message Sent Successfully!");
+}
+</script>
+
+</div>
+
+<footer>
+    <p>Address: Cuddapah, India | Email: support@mylibrary.com</p>
+    <p>© 2026 MyLibrary</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

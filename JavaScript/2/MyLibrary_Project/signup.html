@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+    <div><strong>MyLibrary</strong></div>
+    <div>
+        <a href="index.html">Home</a>
+        <a href="books.html">Books</a>
+        <a href="issued.html">Issued Books</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html">Login</a>
+        <a href="signup.html">Signup</a>
+    </div>
+</nav>
+
+<div class="container">
+
+<h2>Signup</h2>
+<input id="name" placeholder="Full Name"><br><br>
+<input id="email" placeholder="Email"><br><br>
+<input id="password" type="password" placeholder="Password"><br><br>
+<input id="confirm" type="password" placeholder="Confirm Password"><br><br>
+<button onclick="register()">Register</button>
+
+<script>
+function register(){
+    let name=document.getElementById("name").value;
+    let email=document.getElementById("email").value;
+    let pass=document.getElementById("password").value;
+    let confirm=document.getElementById("confirm").value;
+    if(!name||!email||!pass||!confirm){alert("All fields required");return;}
+    if(pass!==confirm){alert("Passwords do not match");return;}
+    let users=getUsers();
+    users.push({name,email,password:pass});
+    localStorage.setItem("users",JSON.stringify(users));
+    alert("Registered Successfully!");
+    window.location="login.html";
+}
+</script>
+
+</div>
+
+<footer>
+    <p>Address: Cuddapah, India | Email: support@mylibrary.com</p>
+    <p>© 2026 MyLibrary</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
